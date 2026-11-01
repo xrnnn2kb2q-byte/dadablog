@@ -19,9 +19,11 @@ from django.urls import path
 from user import views
 from django.conf.urls.static import static
 from django.conf import settings
+from user import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('v1/users',user_views.UserViews.as_view()),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
